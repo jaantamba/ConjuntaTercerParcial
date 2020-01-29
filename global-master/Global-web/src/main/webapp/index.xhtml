@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Global</title>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <p:dataTable id="tblModulos" value="#{DespligueBean.modulos}" var="tblModulo" selectionMode="single">
+                <f:facet name="header">
+                    Gestión de modulos
+                </f:facet>
+             
+                <p:column headerText="Código">
+                    <h:outputText value="#{tblModulo.getCodigo().text}" />
+                </p:column>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{tblModulo.getEstado().text}" />
+                </p:column>
+                <p:column headerText="Estado">
+                    <h:outputText value="#{tblModulo.getNombre().text}" />
+                </p:column>
+            </p:dataTable>
+        </h:body>
+    </f:view>
+</html>
+

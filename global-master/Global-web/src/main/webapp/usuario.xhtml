@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ESPE - DCC - APLICACIONES DISTRIBUIDAS
+Sistema: Global-web
+
+Creado: 17/12/2019 - 16:22:33
+
+Los contenidos de este archivo son propiedad privada y estan protegidos por la licencia BSD.
+
+
+Se puede utilizar, reproducir o copiar el contenido de este archivo.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Global - Usuario</title>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <ui:composition template="index.xhtml">
+                <ui:define name="contenido">
+                    <h:form>
+                        <h1>Usuario</h1>
+                        <p:panel header="BUSCAR POR PK" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="codigo" value="Codigo" />
+                                <p:inputText id="codigo" value="#{usuarioBean.codigo}" required="true" requiredMessage="Especifique el codigo"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Buscar" action="#{usuarioBean.buscarPorPK()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>   
+                    <br/>
+                    <h:form>
+                        <p:panel header="BUSCAR POR ESTADO" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="estado" value="Estado" />
+                                <p:inputText id="estado" value="#{usuarioBean.estado}" required="true" requiredMessage="Especifique el estado"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Buscar" action="#{usuarioBean.buscarPorCodigoEstado()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>   
+                    <br/>
+                    <h:form>
+                        <p:panel header="BUSCAR POR CORREO" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="correo" value="Correo" />
+                                <p:inputText id="correo" value="#{usuarioBean.correoElectronico}" required="true" requiredMessage="Especifique el correo"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Buscar" action="#{usuarioBean.buscarPorCorreoElectronico()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="OBTENER TODOS" style="width: 50%">
+                            <p:commandButton value="Buscar Todos" action="#{usuarioBean.obtenerTodos()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="BUSCAR POR AUDITORIA USUARIO" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="audUsuario" value="Código Usuario" />
+                                <p:inputText id="audUsuario" value="#{usuarioBean.auditoriaUsuario}" required="true" requiredMessage="Especifique el código de usuario"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Buscar" action="#{usuarioBean.obtenerPorAuditoriaUsuario()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="BUSCAR POR AUDITORIA IP" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="audIP" value="Auditoria IP" />
+                                <p:inputText id="audIP" value="#{usuarioBean.auditoriaIP}" required="true" requiredMessage="Especifique la IP"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Buscar" action="#{usuarioBean.obtenerPorAuditoriaIP()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="BUSCAR POR RANGO FECHA CREACIÓN" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="fechaInicio" value="Fecha Inicio" />
+                                <p:calendar id="fechaInicio" value="#{usuarioBean.fechaInicio}" required="true" requiredMessage="Especifique la fecha de inicio"/>
+                                <p:outputLabel for="fechaFin" value="Fecha Fin" />
+                                <p:calendar id="fechaFin" value="#{usuarioBean.fechaFin}" required="true" requiredMessage="Especifique la fecha de fin"/>                
+                            </p:panelGrid>
+                            <p:commandButton value="Buscar" action="#{usuarioBean.obtenerPorRangoFechaCreacion()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="BUSCAR POR RANGO FECHA AUDITORIA" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="fechaInicioAud" value="Fecha Inicio" />
+                                <p:calendar id="fechaInicioAud" value="#{usuarioBean.fechaInicio}" required="true" requiredMessage="Especifique la fecha de inicio"/>
+                                <p:outputLabel for="fechaFinAud" value="Fecha Fin" />
+                                <p:calendar id="fechaFinAud" value="#{usuarioBean.fechaFin}" required="true" requiredMessage="Especifique la fecha de fin"/>                
+                            </p:panelGrid>
+                            <p:commandButton value="Buscar" action="#{usuarioBean.obtenerPorRangoFechaAuditoria()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="CREAR USUARIO" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="newCodigo" value="Código" />
+                                <p:inputText id="newCodigo" value="#{usuarioBean.codigo}" required="true" requiredMessage="Especifique el codigo del nuevo Usuario"/>
+                                <p:outputLabel for="newNombre" value="Nombre" />
+                                <p:inputText id="newNombre" value="#{usuarioBean.nombre}" required="true" requiredMessage="Especifique el nombre del nuevo Usuario"/>
+                                <p:outputLabel for="newCorreoElectronico" value="Correo Electrónico" />
+                                <p:inputText id="newCorreoElectronico" value="#{usuarioBean.correoElectronico}" required="true" requiredMessage="Especifique el correo del nuevo Usuario"/>
+                                <p:outputLabel for="newClave" value="Clave" />
+                                <p:inputText id="newClave" value="#{usuarioBean.clave}" required="true" type="password" requiredMessage="Especifique la clave del nuevo Usuario"/>
+                                <p:outputLabel for="newEstado" value="Codigo de Estado" />
+                                <p:inputText id="newEstado" value="#{usuarioBean.estado}" required="true" requiredMessage="Especifique el estado del nuevo Usuario"/>
+                                <p:outputLabel for="newAudUsuario" value="Auditoría Usuario" />
+                                <p:inputText id="newAudUsuario" value="#{usuarioBean.auditoriaUsuario}" required="true" requiredMessage="Especifique el código del usuario que crea el registro"/>
+                                <p:outputLabel for="newAudIP" value="Auditoria IP" />
+                                <p:inputText id="newAudIP" value="#{usuarioBean.auditoriaIP}" required="true" requiredMessage="Especifique la IP"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Registrar" action="#{usuarioBean.crear()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="ACTUALIZAR USUARIO" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="updateCodigo" value="Código" />
+                                <p:inputText id="updateCodigo" value="#{usuarioBean.codigo}" required="true" requiredMessage="Especifique el codigo del Usuario"/>
+                                <p:outputLabel for="updateNombre" value="Nombre" />
+                                <p:inputText id="updateNombre" value="#{usuarioBean.nombre}" required="true" requiredMessage="Especifique el nombre del Usuario"/>
+                                <p:outputLabel for="updateCorreoElectronico" value="Correo Electrónico" />
+                                <p:inputText id="updateCorreoElectronico" value="#{usuarioBean.correoElectronico}" required="true" requiredMessage="Especifique el correo del Usuario"/>
+                                <p:outputLabel for="updateClave" value="Clave" />
+                                <p:inputText id="updateClave" value="#{usuarioBean.clave}" required="true" type="password" requiredMessage="Especifique la clave del Usuario"/>
+                                <p:outputLabel for="updateEstado" value="Codigo de Estado" />
+                                <p:inputText id="updateEstado" value="#{usuarioBean.estado}" required="true" requiredMessage="Especifique el estado del Usuario"/>
+                                <p:outputLabel for="updateAudUsuario" value="Auditoría Usuario" />
+                                <p:inputText id="updateAudUsuario" value="#{usuarioBean.auditoriaUsuario}" required="true" requiredMessage="Especifique el código del usuario que crea el registro"/>
+                                <p:outputLabel for="updateAudIP" value="Auditoria IP" />
+                                <p:inputText id="updateAudIP" value="#{usuarioBean.auditoriaIP}" required="true" requiredMessage="Especifique la IP"/>
+                                <p:outputLabel for="updateVersion" value="Versión" />
+                                <p:inputText id="updateVersion" value="#{usuarioBean.version}" required="true" requiredMessage="Especifique la IP"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Actualizar" action="#{usuarioBean.actualizar()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    
+                </ui:define>
+            </ui:composition>
+        </h:body>
+    </f:view>
+</html>

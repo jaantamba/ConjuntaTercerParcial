@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Global - Inicio</title>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <ui:composition template="index.xhtml">
+                <ui:define name="contenido">
+                    <h:form>
+                        <h1>Reglas</h1>
+                        <p:panel header="BUSCAR POR PK" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="codigo" value="Codigo" />
+                                <p:inputText id="codigo" value="#{reglaBean.codigo}" required="true" requiredMessage="Especifique el codigo"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Aceptar" action="#{reglaBean.obtenerPorPk()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+
+                        </p:messages>
+                    </h:form>  
+                    <br/>
+                    <h:form>
+                        <p:panel header="Buscar Por Clasificacion" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="clasificacion" value="Clasificacion" />
+                                <p:inputText id="clasificacion" value="#{reglaBean.clasificacion}" required="true" requiredMessage="Especifique el codigo"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Aceptar" action="#{reglaBean.obtenerPorClasificacion()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="Buscar Por Version" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="version" value="Version" />
+                                <p:inputText id="version" value="#{reglaBean.version}" required="true" requiredMessage="Especifique el codigo"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Aceptar" action="#{reglaBean.obtenerPorVersion()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="Buscar Por Rango de Fechas" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="fechaIni" value="Fecha Inicial" />
+                                <p:calendar id="fechaIni" value="#{reglaBean.fechaInicio}" required="true" requiredMessage="Especifique el codigo"/>
+                                <p:outputLabel for="fechaFin" value="Fecha Final" />
+                                <p:calendar id="fechaFin" value="#{reglaBean.fechaFinal}" required="true" requiredMessage="Especifique el codigo"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Aceptar" action="#{reglaBean.obtenerPorRangoFecha()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="Buscar Por Tipo" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="tipo" value="Tipo" />
+                                <p:inputText id="tipo" value="#{reglaBean.tipo}" required="true" requiredMessage="Especifique el codigo"/>
+                            </p:panelGrid>
+                            <p:commandButton value="Aceptar" action="#{reglaBean.obtenerPorTipo()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="Crear" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="codigo" value="Codigo Regla" />
+                                <p:inputText id="codigo" value="#{reglaBean.codigo}" required="true" requiredMessage="Especifique el codigo de la Regla"/>
+                                <p:outputLabel for="etiqueta" value="Etiqueta" />
+                                <p:inputText id="etiqueta" value="#{reglaBean.etiquetaRegla}" required="true" requiredMessage="Especifique la etiqueta de la regla"/>
+                                <p:outputLabel for="tipo" value="Tipo" />
+                                <p:inputText id="tipo" value="#{reglaBean.tipo}" required="true" requiredMessage="Especifique el tipo"/>
+                                <p:outputLabel for="valor" value="Valor Numerico" />
+                                <p:inputText id="valor" value="#{reglaBean.valorNumero}" required="true" requiredMessage="Especifique el valor numerico"/>
+                                <p:outputLabel for="texto" value="Valor Texto" />
+                                <p:inputText id="texto" value="#{reglaBean.valorTexto}" required="true" requiredMessage="Especifique el valor texto"/>
+                                <p:outputLabel for="unidad" value="Unidad" />
+                                <p:inputText id="unidad" value="#{reglaBean.unidad}" required="true" requiredMessage="Especifique el valor numerico"/>
+                                <p:outputLabel for="clasificacion" value="Valor Texto" />
+                                <p:inputText id="clasificacion" value="#{reglaBean.clasificacion}" required="true" requiredMessage="Especifique la clasificacion"/>
+                                <p:outputLabel for="descripcion" value="Descripcion" />
+                                <p:inputText id="descripcion" value="#{reglaBean.descripcion}" required="true" requiredMessage="Especifique la descripcion"/>
+                                <p:outputLabel for="audUsuario" value="Auditoria de Usuario" />
+                                <p:inputText id="audUsuario" value="#{reglaBean.audUsuario}" required="true" requiredMessage="Especifique la Auditoria de usuario"/>
+                                <p:outputLabel for="audFecha" value="Fecha" />
+                                <p:calendar id="audFecha" value="#{reglaBean.audFecha}" required="true" requiredMessage="Especifique la Auditoria de Fecha"/>
+                                <p:outputLabel for="audIp" value="Auditoria de Ip" />
+                                <p:inputText id="audIp" value="#{reglaBean.audIp}" required="true" requiredMessage="Especifique la Auditoria de Ip"/>
+                                <p:outputLabel for="version" value="Version" />
+                                <p:inputText id="version" value="#{reglaBean.version}" required="true" requiredMessage="Especifique la Version"/>
+                                
+                            </p:panelGrid>
+                            <p:commandButton value="Aceptar" action="#{reglaBean.crear()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="Crear" style="width: 50%">
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="codigo" value="Codigo Regla" />
+                                <p:inputText id="codigo" value="#{reglaBean.codigo}" required="true" requiredMessage="Especifique el codigo de la Regla"/>
+                                <p:outputLabel for="etiqueta" value="Etiqueta" />
+                                <p:inputText id="etiqueta" value="#{reglaBean.etiquetaRegla}" required="true" requiredMessage="Especifique la etiqueta de la regla"/>
+                                <p:outputLabel for="tipo" value="Tipo" />
+                                <p:inputText id="tipo" value="#{reglaBean.tipo}" required="true" requiredMessage="Especifique el tipo"/>
+                                <p:outputLabel for="valor" value="Valor Numerico" />
+                                <p:inputText id="valor" value="#{reglaBean.valorNumero}" required="true" requiredMessage="Especifique el valor numerico"/>
+                                <p:outputLabel for="texto" value="Valor Texto" />
+                                <p:inputText id="texto" value="#{reglaBean.valorTexto}" required="true" requiredMessage="Especifique el valor texto"/>
+                                <p:outputLabel for="unidad" value="Unidad" />
+                                <p:inputText id="unidad" value="#{reglaBean.unidad}" required="true" requiredMessage="Especifique el valor numerico"/>
+                                <p:outputLabel for="clasificacion" value="Clasificacion" />
+                                <p:inputText id="clasificacion" value="#{reglaBean.clasificacion}" required="true" requiredMessage="Especifique la clasificacion"/>
+                                <p:outputLabel for="descripcion" value="Descripcion" />
+                                <p:inputText id="descripcion" value="#{reglaBean.descripcion}" required="true" requiredMessage="Especifique la descripcion"/>
+                                <p:outputLabel for="audUsuario" value="Auditoria de Usuario" />
+                                <p:inputText id="audUsuario" value="#{reglaBean.audUsuario}" required="true" requiredMessage="Especifique la Auditoria de usuario"/>
+                                <p:outputLabel for="audFecha" value="Fecha" />
+                                <p:calendar id="audFecha" value="#{reglaBean.audFecha}" required="true" requiredMessage="Especifique la Auditoria de Fecha"/>
+                                <p:outputLabel for="audIp" value="Auditoria de Ip" />
+                                <p:inputText id="audIp" value="#{reglaBean.audIp}" required="true" requiredMessage="Especifique la Auditoria de Ip"/>
+                                <p:outputLabel for="version" value="Version" />
+                                <p:inputText id="version" value="#{reglaBean.version}" required="true" requiredMessage="Especifique la Version"/>
+                                
+                            </p:panelGrid>
+                            <p:commandButton value="Aceptar" action="#{reglaBean.editar()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+                        </p:messages>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        <p:panel header="Buscar Todo" style="width: 50%">
+                            <p:commandButton value="Aceptar" action="#{reglaBean.obtenerTodo()}" ajax="false"/>
+                        </p:panel>
+                        <p:messages id="messages"  closable="true">
+
+                        </p:messages>
+                    </h:form>
+                </ui:define>
+            </ui:composition>
+        </h:body>
+    </f:view>
+</html>
